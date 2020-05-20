@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Calculator</title>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          
+          <p class="lead">Welcome to my Calculator you can do all sort of calculations here</p>
+        </div>
+      </div>
+      <div class="row">
+          
+      <div class="container text-center col-md-3 border border-dark p-2">
+        <p class="bg-info"> Table Generator </p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" >Enter Your Number</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "input">
+          
+        </div>
+        <div class="container text-center border border-dark"><p id="table"></p></div>
+        
+    </div>
+    <div class="container text-center col-md-3 border border-dark p-2">
+        <p class="bg-info"> Calculator </p>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" >Number 1</span>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "num1">
+          <div class="input-group-prepend">
+          <span class="input-group-text" >Number 2</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "num2">
+          
+        </div>
+        
+        <button type="button" class="btn btn-info" id="addBtn">+</button>
+        <button type="button" class="btn btn-info" id="subBtn">-</button>
+        <button type="button" class="btn btn-info" id="mulBtn">*</button>
+        <button type="button" class="btn btn-info" id="divBtn">/</button>
+        <button type="button" class="btn btn-info" id="incBtn">++</button>
+        <button type="button" class="btn btn-info" id="decBtn">--</button>
+
+        <div class="container text-center border border-dark mt-2 p-2"><p id="res"></p></div>
+        
+
+    </div>
+
+    <div class="container text-center col-md-4 p-2 border border-dark">
+        <p class="bg-info"> EMI Calculator </p>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >Enter a Amount</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "amount">
+            
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >Time in Months</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "time">
+            
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" >Interest Rate(%)</span>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" id = "rate">
+            
+          </div>
+
+          <div class="container text-center border border-dark mt-2 p-2"><p id="emiRes"></p></div>
+
+          <button type="button" class="btn btn-info my-2" id="calEMI">Calculate EMI</button>
+        
+    
+    </div>
+
+      </div>
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
