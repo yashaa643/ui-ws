@@ -1,0 +1,145 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+h1{
+    text-align: center;
+   
+    color: #2196F3;
+    background-color: white;
+
+}
+
+html{
+    border:40px solid #2196F3;
+    border-left: 300px solid #2196F3;
+    border-right: 300px solid #2196F3;
+       
+}
+
+
+#imgcontainer{
+    
+   
+    margin-left: 50px;
+    margin-right: 100px;
+  
+     
+    width:100%;
+   
+}
+
+#profileimage{
+    height: 150px;
+    margin-right: 150px;
+    float: left;
+    
+}
+h5{
+    color: gray;
+
+}
+
+h3.heading{
+    
+        display: inline;
+        margin-right: 50px;
+        font-family: carlito;
+}
+
+h5.heading{
+    color: gray;
+    display: inline;
+}
+
+p.heading{
+    font-size: 12px;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+p.rating{
+    
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 1px;
+}
+
+
+
+#address{
+    width: 18.2%;
+    margin-left: 40px;
+    
+}
+
+#about{
+    margin-left: 90px;
+    width: 60%;
+    text-align: justify;
+}
+
+p.tab{
+    display: inline;
+    color: gray;
+}
+
+pre.tab{
+    display: inline;
+    color: gray;
+}
+
+hr{
+    color: lightgrey;
+    border-top: 1px;
+}
+
+li{
+    color: grey;
+
+}
+.box{
+    float: left;
+}
+ul.nav{
+    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+li.nav{
+    
+   float: left;
+}
+
+li a{
+    display: block;
+    color: gray;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    
+}
+
+li a:hover{
+    color: black;
+    border-bottom: 1px solid #2196F3 ;
+}
+
+
+
+p.about{
+    display: inline;
+    color: gray;
+    font-size: 10px;
+}
+
+p.ab{
+    display: inline;
+}
+
+.innerbox{
+    float: left;
+}
