@@ -1,8 +1,9 @@
 
 
 
-const token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1OTAxMDkyOTgsImlhdCI6MTU5MDA5MTI5OH0.qc-c4Wnr_1o6oCkMKbHSh2TPA94dfYvM6Fszaz7aNzUSPCrHBMnBPIXBOoCB-gjmY3KRTX8QFNkBqqMlGbm0XA";
+const token = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJleHAiOjE1OTAxMzczNjIsImlhdCI6MTU5MDExOTM2Mn0.u-Ha5ieVUVdjQfq3MiVRnR5kXbH3rTLrICEQXYCVFxEF8vKFGlmHdebcov-dy7IfKVwGfOE7m0VscAz_lomgUw";
 
+google.charts.load("visualization", "1", {packages: ["corechart"]});
 
 
 let response = function(url){
@@ -14,14 +15,15 @@ let response = function(url){
 }
 
 getTeamLabels = function(){
+
     
     const url = "https://indipl2020.herokuapp.com/ipl2020/team/labels";
     response(url).then(res=>res.json()).then(data=>{
        
-        labels = data["labels"];
+        teamNames = data["labels"];
         teamLabels = document.querySelector("#teamLabels");
         var str = "<select id='teamLabels' class = 'form-control' onChange=getTeamData()>"
-        labels.forEach(element => {
+        teamNames.forEach(element => {
                 str+=`<option value = '${element}'>${element}</option>`
         });
         str+="</select>";        
@@ -33,7 +35,7 @@ getTeamLabels = function(){
 
 getTeamLabels();
 
-google.load("visualization", "1", {packages: ["corechart"]});
+
 
 
 let rolemap = new Map();
@@ -111,14 +113,17 @@ console.log(Rolesarr[2]);
 function drawChart() {
     
     var data = google.visualization.arrayToDataTable(Rolesarr);
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    chart.draw(data, options);
 }
 
-google.setOnLoadCallback(drawChart);
+
+google.charts.setOnLoadCallback(drawChart);
 
 
 var options = {'title':'Roles in the team', 'width':550, 'height':400};
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  chart.draw(data, options);
+   
+  
 
   
    
