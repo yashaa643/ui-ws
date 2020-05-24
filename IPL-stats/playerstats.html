@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         
-    <script src="JS/main.js"></script>
+    <script src="JS/playerstats.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -40,62 +40,22 @@
           
         </div>
       </nav>
-      <div class="row jumbotron my-2">
-        <div class="col-md-6 m-0">
-            <p class="font-weight-bold h3">Total Number of players</p>
-        </div>
-        <div class="col-md-6">
-         <p class="float-right h3" id = 'totalNum'></p>
-     </div>
+
+    <div class="row jumbotron py-1">
+        <div class="container col-md-4 mt-3 p-2">
+            <div class="input-group mb-3 float-left" id="teamLabels">
+                <select class="custom-select" onchange=getTeamData()>
+                    <option selected>Choose...</option>
+                </select>
+            </div>
     </div>
- 
-    <div class="row jumbotron my-2">
-     <div class="col-md-6 m-0">
-         <p class="font-weight-bold h3">Total Amount Spent Across the league</p>
-     </div>
-     <div class="col-md-6">
-      <p class="float-right h3" id = 'totalAmt'></p>
-  </div>
- </div>
- 
- 
- <div class="row jumbotron my-2">
-     <div class="col-md-6 m-0">
-         <p class="font-weight-bold h3">Total Wicket-Keepers</p>
-     </div>
-     <div class="col-md-6">
-      <p class="float-right h3" id = 'totWK'></p>
-  </div>
  </div>
 
-  <div class="row jumbotron my-2">
-    <div class="col-md-6 m-0">
-        <p class="font-weight-bold h3">Total Batsman</p>
-    </div>
-    <div class="col-md-6">
-     <p class="float-right h3" id = 'totBat'></p>
- </div>
-  </div>
- <div class="row jumbotron my-2">
-  <div class="col-md-6 m-0">
-      <p class="font-weight-bold h3">Total Bowlers</p>
-  </div>
-  <div class="col-md-6">
-   <p class="float-right h3" id = 'totBowl'></p>
+ <div class="container">
+     <div class="row"> <div class="container col-md-6" id="tableID"></div>
+ <div id="piechart"></div></div>
+     
 </div>
- </div>
-<div class="row jumbotron my-2">
-  <div class="col-md-6 m-0">
-      <p class="font-weight-bold h3">Total All-Rounders</p>
-  </div>
-  <div class="col-md-6">
-   <p class="float-right h3" id = 'totAll'></p>
-</div>
- </div>
-
-
-    
-    
 
 
 

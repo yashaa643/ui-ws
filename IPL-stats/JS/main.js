@@ -24,111 +24,59 @@ let response = function (url) {
     });
 }
 
-getTeamLabels = function () {
-
-
-    const url = "https://indipl2020.herokuapp.com/ipl2020/team/labels";
-    response(url).then(res => res.json()).then(data => {
-       
-        teamNames = data["labels"];
-        teamLabels = document.querySelector("#teamLabels");
-        var str = "<select id='teamLabels' class = 'form-control' onChange=getTeamData()>"
-        teamNames.forEach(element => {
-            str += `<option value = '${element}'>${element}</option>`
-        });
-        str += "</select>";
-        teamLabels.innerHTML = str;
-    }).catch(err => {
-        console.log(err);
-    });
-}
-
-getTeamLabels();
-
-google.charts.load('current', { 'packages': ['corechart'] });
-
-function drawChart(Rolesarr) {
-
-    
-    var data = google.visualization.arrayToDataTable(Rolesarr);
-    
-    console.log(data);
-
-    var options = { 'title': 'Roles in the team', 'width': 550, 'height': 400 };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-    chart.draw(data, options);
-
-}
-
-getTeamData = function () {
-
-    let rolemap = new Map();
-    let Roles = [];
-    let Rolesarr = [['Role', 'Number']];
+    var totalPlayers=0;
+    var totalWK=0;
+    var totalBat=0;
+    var totalBowl=0;
+    var totalAll=0;
+    var totalAmount=0;
 
     const allurl = "https://indipl2020.herokuapp.com/ipl2020/team/players/all";
 
-    const selectElement = document.querySelector("#teamLabels");
+   
 
-    selectElement.addEventListener('change', (event) => {
-
-
-
+ 
         response(allurl).then(res => res.json()).then(data => {
 
-          
-            tableID = document.querySelector("#tableID");
-            var str = "<table class='table table-striped' ><thead><tr><th scope='col'>Name</th><th scope='col'>Role</th><th scope='col'>Label</th><th scope='col'>Price</th></tr></thead><tbody>"
             let team = [];
-
             data.forEach(e => {
 
-                if (e["label"] === event.target.value) {
-                    team.push(e);
-                    if (rolemap.get(e["role"])) {
-                        rolemap.set(e["role"], rolemap.get(e["role"]) + 1);
-                    }
-                    else {
-                        rolemap.set(e["role"], 1);
-                        Roles.push(`${e["role"]}`);
-                    }
+                team.push(e);
+
+                console.log(data.price);
+
+                
+                totalPlayers++;
+                switch(e["role"]){
+                    case "Wicket Keeper":    totalWK++;
+                                            break;
+                    case "Batsman":          totalBat++;
+                                            break;
+                    case "Bowler":          totalBowl++;
+                                            break;
+                    case "All-Rounder":     totalAll++;
+                                            break;
+
+                    default:            break;
                 }
+
+               
             })
 
-            
-
-            Roles.forEach(e => {
-
-                Rolesarr.push([e, rolemap.get(e)]);
+            team.forEach(e=>{
+                totalAmount = totalAmount + e['price'];
             })
 
-            console.log(Rolesarr);
-            
-            google.charts.setOnLoadCallback(drawChart(Rolesarr));
 
             
 
-            team.forEach(element => {
-                name = element["name"];
-                role = element["role"];
-                label = element["label"];
-                price = element["price"];
-                str += `<tr>
-                <th scope="row">${name}</th>
-                <td>${role}</td>
-                <td>${label}</td>
-                <td>${price}</td>
-              </tr>`
-            });
-            str += "</tbody></table>";
-            tableID.innerHTML = str;
-        }).catch(err => {
-            console.log(err);
-        });
-
+            document.querySelector("#totalNum").innerHTML=`${totalPlayers}`;
+            document.querySelector("#totalAmt").innerHTML=`${totalAmount} ₹`;
+            document.querySelector("#totWK").innerHTML=`${totalWK}`;
+            document.querySelector("#totBat").innerHTML=`${totalBat}`;
+            document.querySelector("#totBowl").innerHTML=`${totalBowl}`;    
+            document.querySelector("#totAll").innerHTML=`${totalAll}`;
+  
        
         
     })
-};
