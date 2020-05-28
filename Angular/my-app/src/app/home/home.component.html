@@ -1,0 +1,23 @@
+<div class="container bg-dark text-white mt-3 border border-dark rounded p-4">
+    <h3>You can find the most famous books here!!</h3>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore sint excepturi corporis quasi, esse assumenda
+        tempore reprehenderit voluptates id. Explicabo mollitia laboriosam hic tenetur officiis, labore cumque earum
+        animi perferendis.</p>
+</div>
+<br>    
+<div class="container">
+    <div class="card-deck">
+        <div *ngFor="let book of books" class="card" >
+            <img class="card-img-top" [src]="book.imageLink" alt="" height = "200">
+            <div class="card-body">
+                <h5 class="card-title text-dark">{{book.title}}</h5>
+                <p class="card-text">
+                    Language : {{book.language}}<br>
+                    Author   : {{book.author}} <br>
+                    Pages    : {{book.pages}}   
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>

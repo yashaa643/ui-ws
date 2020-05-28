@@ -1,0 +1,56 @@
+<div class="bg-dark py-3">
+  <div class="container col-md-6 my-2  border border-dark rounded p-2 bg-white">
+    <form id="authorFormId" #f="ngForm" (ngSubmit)="submitData(f)">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="author.name" name="name" class="form-control" placeholder="Enter Name">
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" [(ngModel)]="author.email" name="email" class="form-control" aria-describedby="emailHelp"
+          placeholder="Enter email">
+
+      </div>
+      <div class="form-group">
+        <label>Books Published</label>
+        <input type="number" [(ngModel)]="author.books" name="books" class="form-control"
+          placeholder="Number of Books Published">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+
+
+<div *ngIf="authors.length>0; then showList else nodata"></div>
+
+<ng-template #showList>
+  <div class="container mt-2">
+    <table class="table text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Books Published</th>
+          <th scope="col">Edit/Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors;let num = index">
+          <th scope="row">{{num+1}}</th>
+          <td>{{author.name}}</td>
+          <td>{{author.email}}</td>
+          <td>{{author.books}}</td>
+          <td><i class="fas fa-edit ml-1 "></i><i class="fas fa-trash ml-2" (click)="deleteAuthor(author)"></i></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+
+<ng-template #nodata>
+  <h1 class="lead text-center mt-4">Please enter some authors</h1>
+</ng-template>

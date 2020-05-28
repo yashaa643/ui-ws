@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-light mt-2">
+  <form class="form-inline">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" placeholder="Search">
+      </form>
+</nav>
+
+
+<div class=" mx-1 px-0 mt-2">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Language</th>
+        <th scope="col">Author</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books|filter:searchText;let num = index">
+        <th scope="row">{{num+1}}</th>
+        <td>{{book.title}}</td>
+        <td>{{book.language}}</td>
+        <td>{{book.author}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
