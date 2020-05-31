@@ -1,0 +1,69 @@
+<app-iplhead></app-iplhead>
+<div class="row justify-content-md-center mt-2 col-md-10 ml-5 border border-dark pt-3 pb-1">
+    <label class="col-sm-2 col-form-label col-md-6">Search for players by name,team,role</label>
+    <form class="form-group row">
+        
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" placeholder="Search">
+    </form>
+</div>
+
+
+<div *ngIf="this.searchText.length==0; then page else nopage"></div>
+
+<ng-template #page>
+    <div class=" mx-1 px-0 mt-2">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players|paginate:config;let num = index">
+                    <th scope="row">{{num+1}}</th>
+                    <td>{{player.name}}</td>
+                    <td>{{player.label}}</td>
+                    <td>{{player.role}}</td>
+                    <td>{{player.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+
+
+    </div>
+</ng-template>
+<ng-template #nopage>
+    <div class=" mx-1 px-0 mt-2">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of players|filter:searchText;let num = index">
+                    <th scope="row">{{num+1}}</th>
+                    <td>{{player.name}}</td>
+                    <td>{{player.label}}</td>
+                    <td>{{player.role}}</td>
+                    <td>{{player.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</ng-template>

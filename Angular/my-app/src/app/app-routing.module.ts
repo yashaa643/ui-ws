@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { BookComponent } from './book/book.component';
-import { AuthorComponent } from './book/author/author.component';
+import { AuthorComponent } from './author/author.component';
+import { IplComponent } from './ipl/ipl.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path:'author',
     component:AuthorComponent
+  },
+  {
+    path:'ipl',
+    loadChildren:()=>import('./ipl/ipl.module').then(m=>m.IplModule)    
+  
   }
 ];
 

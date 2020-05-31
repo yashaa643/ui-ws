@@ -1,0 +1,111 @@
+<app-iplhead></app-iplhead>
+
+<div class="row jumbotron my-2 pb-0">
+    <div class="col-md-6">
+        <p class="font-weight-bold h3">Max paid Batsman:</p>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>        
+                    <td>{{batsman.name}}</td>
+                    <td>{{batsman.label}}</td>
+                    
+                    <td>{{batsman.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+        
+        
+            </tbody>
+        </table>
+ </div>
+</div>
+
+<div class="row jumbotron my-2 pb-0">
+    <div class="col-md-6">
+        <p class="font-weight-bold h3">Max paid Bowler:</p>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>        
+                    <td>{{bowler.name}}</td>
+                    <td>{{bowler.label}}</td>
+                    
+                    <td>{{bowler.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+        
+        
+            </tbody>
+        </table>
+ </div>
+</div>
+<div class="row jumbotron my-2 pb-0">
+    <div class="col-md-6">
+        <p class="font-weight-bold h3">Max paid Wicket Keeper:</p>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>        
+                    <td>{{wk.name}}</td>
+                    <td>{{wk.label}}</td>
+                    
+                    <td>{{wk.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+        
+        
+            </tbody>
+        </table>
+ </div>
+</div>
+<div class="row jumbotron my-2 pb-0">
+    <div class="col-md-6">
+        <p class="font-weight-bold h3">Max paid All Rounder:</p>
+    </div>
+    <div class="col-md-6">
+        <table class="table table-striped border border-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Team</th>
+                    
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>        
+                    <td>{{all.name}}</td>
+                    <td>{{all.label}}</td>
+                    
+                    <td>{{all.price|currency:'INR':'symbol-narrow'}}</td>
+                </tr>
+        
+        
+            </tbody>
+        </table>
+ </div>
+</div>

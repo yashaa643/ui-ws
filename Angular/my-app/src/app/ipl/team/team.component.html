@@ -1,0 +1,79 @@
+<app-iplhead></app-iplhead>
+<div class=" mx-1 px-0 mt-2">
+  <table class="table table-striped border border-dark">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Team</th>
+        <th scope="col">Label</th>
+        <th scope="col">Coach</th>
+        <th scope="col">City</th>
+        <th scope="col">Home</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams;let num = index" (click)="displayTeam($event)">
+        <th scope="row">{{num+1}}</th>
+        <td>{{team.team}}</td>
+        <td>{{team.label}}</td>
+        <td>{{team.coach}}</td>
+        <td>{{team.city}}</td>
+        <td>{{team.home}}</td>
+      </tr>
+
+
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="isClicked">
+  <div class="card-group">
+    <div class="card">
+      <img [src]="logoURL" class="card-img-top" height="300" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{label}}</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img [src]="coachURL" class="card-img-top" height="300" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{coach}}</h5>
+      </div>
+    </div>
+    <div class="card">
+      <img [src]="homeURL" class="card-img-top" height="300" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{home}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class=" mx-1 px-0 mt-2">
+    <table class="table table-striped border border-dark">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Team</th>
+          <th scope="col">Role</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of teamDetail|paginate:config;let num = index">
+          <th scope="row">{{num+1}}</th>
+          <td>{{player.name}}</td>
+          <td>{{player.label}}</td>
+          <td>{{player.role}}</td>
+          <td>{{player.price|currency:'INR':'symbol-narrow'}}</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+    <div class="container mt-3 border rounded">
+      <google-chart [data]="pieChart"></google-chart>
+  </div>
+  </div>

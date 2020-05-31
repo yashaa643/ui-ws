@@ -1,0 +1,52 @@
+<app-iplhead></app-iplhead>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Players
+        <span class="badge badge-primary badge-pill">{{players}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Batsman
+        <span class="badge badge-primary badge-pill">{{bat}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Bowlers
+        <span class="badge badge-primary badge-pill">{{bowl}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Wicket-Keepers
+        <span class="badge badge-primary badge-pill">{{wk}}</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total All-Rounders
+        <span class="badge badge-primary badge-pill">{{all}}</span>
+    </li>
+</ul>
+
+<div class="container mt-3 border rounded">
+    <google-chart [data]="pieChart" (chartSelect)='select($event)'></google-chart>
+</div>
+
+<div class=" mx-1 px-0 mt-2" *ngIf="isClicked">
+    <table class="table table-striped border border-dark">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Team</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let player of drilldownarr|paginate:config;let num = index">
+                <th scope="row">{{num+1}}</th>
+                <td>{{player.name}}</td>
+                <td>{{player.label}}</td>
+                <td>{{player.price|currency:'INR':'symbol-narrow'}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div>
