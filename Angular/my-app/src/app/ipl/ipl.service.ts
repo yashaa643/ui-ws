@@ -39,12 +39,12 @@ export class IplService {
 
   
   teamDetails():Observable<Team[]>{
-    console.log(this.header);
+    
     return this.http.get<Team[]>("https://indipl2020.herokuapp.com/ipl2020/team/all",this.httpOptions);
   }
 
   getToken():Observable<string>{
-    console.log(this.body)
+    
     return this.http.post<string>("https://indipl2020.herokuapp.com/authenticate",this.body,this.loginheaders);
   }
 
